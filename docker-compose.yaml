@@ -1,0 +1,12 @@
+version: "3"
+services:
+  user-service-db:
+    image: mongo
+    environment:
+      - MONGO_DATABASE=user
+  demo:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user-service-db
